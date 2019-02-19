@@ -36,8 +36,8 @@ def input_neuron(inputs, output=1):
         else:
             input_tensors.append(create_tensors(input))
 
-    x = Dense(output, activation='relu')(input_tensors[0])
-    x1 = Dense(output, activation='relu')(input_tensors[1])
+    x = Dense(output, activation='relu', name="output_layer1")(input_tensors[0])
+    x1 = Dense(output, activation='relu', name='output_layer2')(input_tensors[1])
     return x, x1, input_tensors[0], input_tensors[1]
 
 
