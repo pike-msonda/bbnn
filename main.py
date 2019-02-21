@@ -12,10 +12,9 @@ This is a model that create a simple neuron block with two inputs and two output
 if __name__ == "__main__":
 
     out, out1, in0, in1 = input_neuron(inputs=[1,1])  #create entry points in the network and 
-
+    import pdb; pdb.set_trace()
     model = make_model(input=[in0,in1], output=[out,out1]) #creating model
 
-    show_weights(model)
     model.summary() 
 
     plot_model(model, to_file='sample.png')  #ignore.

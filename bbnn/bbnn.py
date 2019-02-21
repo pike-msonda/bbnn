@@ -51,8 +51,8 @@ def input_neuron(inputs, output=1):
 
     return x, x1, input_tensors[0], input_tensors[1]
 
-def create_dense(output, name):
-    return Dense(output,name)
+def create_dense(output):
+    return Dense(output)
 
 def hidden_neuron(inputs, outputs=[1,1]):
     hidden_tensors=[]
