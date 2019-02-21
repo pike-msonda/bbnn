@@ -1,4 +1,4 @@
-from bbnn.bbnn import output_neuron, input_neuron, hidden_neuron, add_dense_layer, make_model
+from bbnn.bbnn import output_neuron, input_neuron, hidden_neuron, add_dense_layer, make_model, show_weights
 import os
 os.environ["PATH"] += os.pathsep + 'C:/Program Files (x86)/Graphviz2.38/bin/'
 import numpy as np
@@ -15,9 +15,7 @@ if __name__ == "__main__":
 
     model = make_model(input=[in0,in1], output=[out,out1]) #creating model
 
+    show_weights(model)
     model.summary() 
 
     plot_model(model, to_file='sample.png')  #ignore.
-    
-
-

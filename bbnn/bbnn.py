@@ -36,10 +36,20 @@ def input_neuron(inputs, output=1):
         else:
             input_tensors.append(create_tensors(input))
 
-    x = Dense(output, activation='relu', name="output_layer1")(input_tensors[0])
-    x1 = Dense(output, activation='relu', name='output_layer2')(input_tensors[1])
+    layer = create_dense(output, name="output_layer0")
+    layer1 = create_dense(output, name="output_layer1")
+    
+    x = layer(input_tensors[0])
+    x1 = layer1(input_tensors[1])
+    print ("=========WEIGHTS USED=====================")
+
+    print("For layer {0}:  {1}".format(x, show_weights(layer)))
+    print("For layer {0}:  {1}".format(x1, show_weights(layer1)))
+
     return x, x1, input_tensors[0], input_tensors[1]
 
+def create_dense(output, name):
+    return Dense(output,name)
 
 def hidden_neuron(inputs, outputs=[1,1]):
     hidden_tensors=[]
@@ -48,6 +58,9 @@ def hidden_neuron(inputs, outputs=[1,1]):
     
     return hidden_tensors
 
+def show_weights(dense):
+    # import pdb; pdb.set_trace()
+    return dense.get_weights()
 
 def add_dense_layer(dense):
     tensors_to_add = []
