@@ -36,15 +36,18 @@ def input_neuron(inputs, output=1):
         else:
             input_tensors.append(create_tensors(input))
 
-    layer = create_dense(output, name="output_layer0")
-    layer1 = create_dense(output, name="output_layer1")
+    layer = create_dense(output)
+    layer1 = create_dense(output)
     
     x = layer(input_tensors[0])
+    x = layer(input_tensors[1])
+    x1 = layer1(input_tensors[0])
     x1 = layer1(input_tensors[1])
+    
     print ("=========WEIGHTS USED=====================")
 
-    print("For layer {0}:  {1}".format(x, show_weights(layer)))
-    print("For layer {0}:  {1}".format(x1, show_weights(layer1)))
+    # print("For layer {0}:  {1}".format(x, show_weights(layer)))
+    # print("For layer {0}:  {1}".format(x1, show_weights(layer1)))
 
     return x, x1, input_tensors[0], input_tensors[1]
 
